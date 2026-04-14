@@ -1,0 +1,71 @@
+---
+title: 浦江智涌 AI无界 Physical AI 研讨会（下午场）
+type: source
+date: 2026-03-28
+sources:
+  - 讯飞转写_2026年03月28日_直播笔记_浦江智涌_AI无界_Physical_AI_前沿探索与产业创新研讨会暨第二十八届系友论坛顺利举办_Part2.txt
+related:
+  - concept/physical-ai.md
+  - concept/advanced-packaging.md
+  - concept/inference-optimization.md
+  - entity/oriental-computing.md
+  - entity/united-innovation.md
+---
+
+# 浦江智涌 AI无界 Physical AI 研讨会（下午场）
+
+## 基本信息
+
+- **活动**：Physical AI 前沿探索与产业创新研讨会暨第二十八届系友论坛
+- **日期**：2026-03-28（下午场）
+- **主办方**：清华大学电子工程系系友会
+- **原始文件**：`raw/会议记录/讯飞转写_2026年03月28日_直播笔记_浦江智涌_AI无界_Physical_AI_前沿探索与产业创新研讨会暨第二十八届系友论坛顺利举办_Part2.txt`
+
+## 核心内容
+
+### 1. 下一代 AI 计算架构
+
+东方算力（Oriental Computing）分享下一代 AI 芯片架构方向：
+- **软件定义芯片**：通过可重构架构提升算力利用率，适应多模型、多任务场景
+- **3D 混合键合（Hybrid Bonding）**：提升互连密度和带宽，降低功耗
+- **存算一体（PIM, Processing-in-Memory）**：减少数据搬运开销，缓解"内存墙"问题
+- **近存计算（Near-Memory Computing）**：作为存算一体的过渡方案，已在部分场景中落地
+- **先进封装（2.5D/3D, TSV）**：是提升系统集成度的关键，中国产业链正在加速布局
+
+### 2. EDA 与芯片设计工具
+
+合见工软（United Innovation）分享：
+- 国产 EDA 在验证、封装协同设计等环节取得突破
+- 先进封装对 EDA 工具提出了新的协同设计需求
+- 强调"工具链自主可控"对产业链安全的重要性
+
+### 3. 推理优化技术
+
+多位嘉宾提到推理阶段的核心优化方向：
+- **Prefill/Decode 分离（P/D Separation）**：针对两个阶段的计算特征差异分别优化
+- **Decode 带宽瓶颈**：生成阶段受限于内存带宽，而非算力
+- **SRAM 优化**：通过模型压缩、KV Cache 优化、稀疏激活等手段提升 SRAM 利用率
+
+### 4. 创业项目路演
+
+下午场包含 6 个创业项目的 Demo 展示，领域涵盖：
+- 机器人本体与控制系统
+- 边缘 AI 芯片
+- 物理仿真与数字孪生
+- 智能传感器
+- 机器人操作系统
+- AI 训练数据平台
+
+（项目细节待进一步整理）
+
+## 关键引用
+
+> "训练看算力，推理看带宽；未来 AI 芯片的竞争将从 Training 转向 Inference。"
+
+## 相关页面
+
+- [Physical AI](../concept/physical-ai.md)
+- [先进封装](../concept/advanced-packaging.md)
+- [推理优化](../concept/inference-optimization.md)
+- [东方算力](../entity/oriental-computing.md)
+- [合见工软](../entity/united-innovation.md)

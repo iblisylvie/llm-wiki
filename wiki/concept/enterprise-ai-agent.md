@@ -1,0 +1,39 @@
+---
+title: 企业级 AI Agent
+type: concept
+date: 2026-04-14
+sources:
+  - 讯飞转写_2026年03月25日_直播笔记：企业级小龙虾养成指南.txt
+related:
+  - source/xunfei-2026-03-25-enterprise-lobster.md
+  - entity/tencent-cloud.md
+  - concept/agent-security-architecture.md
+---
+
+# 企业级 AI Agent
+
+## 定义
+
+企业级 AI Agent 是面向组织（B 端）场景设计的智能体系统，能够接入企业数据、工具和工作流，自主或半自主地完成任务。
+
+## 与消费级 Agent 的核心差异
+
+| 维度 | 消费级 Agent | 企业级 Agent |
+|------|-------------|-------------|
+| 驱动方式 | 对话驱动（Chat-driven） | 任务驱动（Task-driven） |
+| 数据环境 | 公开互联网 | 企业内部数据、权限体系 |
+| 错误容忍 | 较高 | 极低，需可审计、可回滚 |
+| 部署方式 | 直接使用 | 需渐进式培养、持续运营 |
+| 安全要求 | 通用安全 | 多层安全架构（Host/Runtime/Network） |
+
+## 关键成功要素
+
+1. **任务驱动设计**：以完成具体业务任务为目标，而非单纯对话交互
+2. **效果评估体系**：建立业务指标驱动的评估闭环
+3. **人在回路（Human-in-the-loop）**：关键决策环节保留人工介入机制
+4. **安全与审计**：调用可追溯、行为可监控、异常可拦截
+5. **多 Agent 协作**：支持任务分解和 Agent 间调度
+
+## 来源
+
+- [企业级小龙虾养成指南直播笔记](../source/xunfei-2026-03-25-enterprise-lobster.md)

@@ -1,0 +1,30 @@
+---
+title: 腾讯云
+type: entity
+date: 2026-04-14
+sources:
+  - 讯飞转写_2026年03月25日_直播笔记：企业级小龙虾养成指南.txt
+related:
+  - source/xunfei-2026-03-25-enterprise-lobster.md
+  - concept/enterprise-ai-agent.md
+  - concept/agent-security-architecture.md
+---
+
+# 腾讯云
+
+## 概述
+
+腾讯云（Tencent Cloud）是腾讯集团旗下的云计算服务品牌，提供 IaaS、PaaS、SaaS 及行业解决方案。
+
+## 与当前 Wiki 相关的动态
+
+在 2026-03-25 的直播中，腾讯云发布了**企业级智能体开发平台**（Agent Development Platform），强调面向 B 端场景的 Agent 构建能力，并提出了三层 Agent 安全架构。
+
+## 相关产品/服务
+
+- **腾讯云智能体开发平台**：面向企业的 AI Agent 开发、部署、运营一体化平台
+- **腾讯云大模型知识引擎**：支撑 Agent 知识检索与推理能力
+
+## 来源
+
+- [企业级小龙虾养成指南直播笔记](../source/xunfei-2026-03-25-enterprise-lobster.md)

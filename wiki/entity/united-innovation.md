@@ -1,0 +1,27 @@
+---
+title: 合见工软
+type: entity
+date: 2026-04-14
+sources:
+  - 讯飞转写_2026年03月28日_直播笔记_浦江智涌_AI无界_Physical_AI_前沿探索与产业创新研讨会暨第二十八届系友论坛顺利举办_Part2.txt
+related:
+  - source/xunfei-2026-03-28-physical-ai-symposium-part2.md
+  - concept/advanced-packaging.md
+---
+
+# 合见工软
+
+## 概述
+
+合见工软（United Innovation）是中国本土的 EDA（电子设计自动化）工具提供商，致力于为芯片设计企业提供自主可控的工具链。
+
+## 与当前 Wiki 相关的动态
+
+在 2026-03-28 的 Physical AI 研讨会下午场，合见工软分享了国产 EDA 的最新进展：
+- 在验证、封装协同设计等环节取得突破
+- 先进封装（2.5D/3D）对 EDA 提出了协同设计的新需求
+- 强调工具链自主可控对产业链安全的重要性
+
+## 来源
+
+- [浦江智涌 AI无界 Physical AI 研讨会（下午场）](../source/xunfei-2026-03-28-physical-ai-symposium-part2.md)

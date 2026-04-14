@@ -1,0 +1,48 @@
+---
+title: Physical AI
+type: concept
+date: 2026-04-14
+sources:
+  - 讯飞转写_2026年03月28日_直播笔记_浦江智涌_AI无界_Physical_AI_前沿探索与产业创新研讨会暨第二十八届系友论坛顺利举办_Part1.txt
+  - 讯飞转写_2026年03月28日_直播笔记_浦江智涌_AI无界_Physical_AI_前沿探索与产业创新研讨会暨第二十八届系友论坛顺利举办_Part2.txt
+related:
+  - source/xunfei-2026-03-28-physical-ai-symposium-part1.md
+  - source/xunfei-2026-03-28-physical-ai-symposium-part2.md
+  - concept/embodied-intelligence.md
+  - concept/world-model.md
+---
+
+# Physical AI
+
+## 定义
+
+Physical AI（物理人工智能）是人工智能与物理世界深度融合的交叉领域，研究如何让 AI 系统感知、理解并与真实物理环境进行交互。它涵盖算法、芯片、传感器、机器人本体和系统集成等多个层面。
+
+## 核心组成
+
+1. **感知层**：视觉、触觉、力觉、听觉等多模态感知
+2. **认知层**：世界模型（World Model）、任务规划、因果推理
+3. **决策层**：运动控制、行为策略、安全约束
+4. **执行层**：机器人本体、执行器、机械结构
+5. **基础设施层**：边缘/端侧 AI 芯片、通信、能源系统
+
+## 与当前 Wiki 相关的观点
+
+在 2026-03-28 的研讨会上，Physical AI 被定位为清华大学电子工程系的重点交叉方向，强调需要打通"算法-芯片-系统-物理世界"全链条。
+
+核心共识：
+- 世界模型是 Physical AI 的"认知引擎"
+- 数据稀缺和 Sim-to-Real 鸿沟是主要瓶颈
+- 未来竞争将从"训练算力"转向"推理效率"和"系统集成"
+
+## 相关概念
+
+- [具身智能](embodied-intelligence.md)
+- [世界模型](world-model.md)
+- [先进封装](advanced-packaging.md)
+- [推理优化](inference-optimization.md)
+
+## 来源
+
+- [浦江智涌 AI无界 Physical AI 研讨会（上午场）](../source/xunfei-2026-03-28-physical-ai-symposium-part1.md)
+- [浦江智涌 AI无界 Physical AI 研讨会（下午场）](../source/xunfei-2026-03-28-physical-ai-symposium-part2.md)

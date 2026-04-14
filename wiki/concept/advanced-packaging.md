@@ -1,0 +1,44 @@
+---
+title: 先进封装
+type: concept
+date: 2026-04-14
+sources:
+  - 讯飞转写_2026年03月28日_直播笔记_浦江智涌_AI无界_Physical_AI_前沿探索与产业创新研讨会暨第二十八届系友论坛顺利举办_Part2.txt
+related:
+  - source/xunfei-2026-03-28-physical-ai-symposium-part2.md
+  - entity/oriental-computing.md
+  - entity/united-innovation.md
+  - concept/inference-optimization.md
+---
+
+# 先进封装
+
+## 定义
+
+先进封装（Advanced Packaging）是指超越传统引线键合（Wire Bonding）的芯片互连与系统集成技术，通过更短的互连距离、更高的集成密度来提升芯片性能和能效。
+
+## 主要技术方向
+
+### 2.5D 封装
+- 通过硅中介层（Silicon Interposer）实现多颗芯片的水平集成
+- 代表技术：CoWoS（台积电）、EMIB（Intel）
+
+### 3D 封装
+- 通过硅通孔（TSV, Through-Silicon Via）实现芯片的垂直堆叠
+- 进一步缩短互连距离，提升带宽和能效
+
+### 混合键合（Hybrid Bonding）
+- 无凸点（Bump-less）的直接铜-铜键合技术
+- 互连密度和带宽远超传统微凸点方案
+- 被认为是 3D 集成的下一代关键技术
+
+## 与 AI 芯片的关系
+
+在 2026-03-28 的研讨会上，嘉宾强调：
+- 先进封装是突破"内存墙"和"算力密度瓶颈"的关键路径
+- 对于推理阶段，高带宽、低延迟的片间互连尤为重要
+- 中国产业链正在加速布局先进封装能力
+
+## 来源
+
+- [浦江智涌 AI无界 Physical AI 研讨会（下午场）](../source/xunfei-2026-03-28-physical-ai-symposium-part2.md)

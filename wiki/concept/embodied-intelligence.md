@@ -1,0 +1,55 @@
+---
+title: 具身智能
+type: concept
+date: 2026-04-14
+sources:
+  - 讯飞转写_2026年03月28日_直播笔记_浦江智涌_AI无界_Physical_AI_前沿探索与产业创新研讨会暨第二十八届系友论坛顺利举办_Part1.txt
+related:
+  - source/xunfei-2026-03-28-physical-ai-symposium-part1.md
+  - concept/physical-ai.md
+  - concept/world-model.md
+  - entity/stepfun.md
+  - entity/qionge-intelligence.md
+  - entity/zhiyuan-robotics.md
+  - entity/fourier-intelligence.md
+---
+
+# 具身智能
+
+## 定义
+
+具身智能（Embodied Intelligence）是指具有物理身体、能够通过与环境交互来学习和进化的智能系统。它强调"智能源于身体与环境的耦合"，而非纯粹基于符号或数据的抽象推理。
+
+## 核心特征
+
+1. **物理交互**：通过传感器感知环境，通过执行器改变环境
+2. **闭环学习**：行动 → 反馈 → 学习 → 改进行动的循环
+3. **多模态融合**：视觉、听觉、触觉、力觉、本体感觉的综合处理
+4. **情境依赖**：智能行为高度依赖于具体物理情境
+
+## 当前产业共识（2026-03-28 研讨会）
+
+**主要瓶颈**：
+- 真机数据采集成本极高，数据稀缺是最大挑战
+- Sim-to-Real（仿真到现实）迁移存在"现实鸿沟"
+- 通用机器人的安全性和可靠性尚未达到大规模部署标准
+
+**技术路径**：
+- 大模型提供"大脑"（语义理解、任务规划）
+- 世界模型提供"认知引擎"（环境预测、因果推理）
+- 仿真数据 + 真机数据混合训练
+
+**落地节奏**：
+- 短期内：专用机器人在特定场景（如康复医疗、工业制造）更易落地
+- 长期目标：通用人形机器人被视为"终极形态"
+
+## 相关实体
+
+- [阶跃星辰](../entity/stepfun.md)
+- [穹彻智能](../entity/qionge-intelligence.md)
+- [智元机器人](../entity/zhiyuan-robotics.md)
+- [傅利叶智能](../entity/fourier-intelligence.md)
+
+## 来源
+
+- [浦江智涌 AI无界 Physical AI 研讨会（上午场）](../source/xunfei-2026-03-28-physical-ai-symposium-part1.md)

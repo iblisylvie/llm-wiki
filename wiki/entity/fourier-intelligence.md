@@ -1,0 +1,27 @@
+---
+title: 傅利叶智能
+type: entity
+date: 2026-04-14
+sources:
+  - 讯飞转写_2026年03月28日_直播笔记_浦江智涌_AI无界_Physical_AI_前沿探索与产业创新研讨会暨第二十八届系友论坛顺利举办_Part1.txt
+related:
+  - source/xunfei-2026-03-28-physical-ai-symposium-part1.md
+  - concept/embodied-intelligence.md
+---
+
+# 傅利叶智能
+
+## 概述
+
+傅利叶智能（Fourier Intelligence）是一家专注于康复机器人和人形机器人的中国科技公司，产品涵盖外骨骼机器人、康复训练设备等。
+
+## 与当前 Wiki 相关的动态
+
+在 2026-03-28 的 Physical AI 研讨会上，傅利叶智能代表参与了具身智能圆桌论坛，分享了：
+- 康复医疗是具身智能短期落地的优质场景，需求明确、数据可控
+- 人形机器人在医疗康养领域有巨大潜力，但需要解决安全性和人机交互问题
+- 强调"场景驱动"的机器人开发路线
+
+## 来源
+
+- [浦江智涌 AI无界 Physical AI 研讨会（上午场）](../source/xunfei-2026-03-28-physical-ai-symposium-part1.md)
