@@ -49,7 +49,9 @@ related: []        # 相关的 wiki 页面链接
 ### Ingest（摄入资料）
 
 1. 读取 `raw/` 中的新文件。
-2. 在 `wiki/source/` 下创建对应的总结页。
+2. 在 `wiki/source/` 下创建对应的总结页，并在页面底部添加"原始资料"链接区块：
+   - 使用相对路径 `../../raw/...` 链接回原始文件
+   - 示例：`- [原始文件名.txt](../../raw/子目录/原始文件名.txt)`
 3. 提取关键实体和概念，创建或更新 `wiki/entity/` 和 `wiki/concept/` 页面。
 4. 更新 `wiki/overview.md` 和 `wiki/index.md`。
 5. 在 `wiki/log.md` 中追加一条记录：`## [YYYY-MM-DD] ingest | 资料标题`
@@ -71,4 +73,5 @@ related: []        # 相关的 wiki 页面链接
 ## 当前状态
 
 - 第一批资料已摄入（3 份会议记录）。
-- Wiki 页面数：20（3 source + 7 entity + 7 concept + index + log + overview）。
+- 第二批资料已摄入（AI 芯片竞品分析资料：NVIDIA/华为/寒武纪/燧原等）。
+- Wiki 页面数：38（4 source + 19 entity + 12 concept + index + log + overview）。

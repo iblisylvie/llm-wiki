@@ -57,3 +57,9 @@ related:
 - [腾讯云](../entity/tencent-cloud.md)
 - [企业级 AI Agent](../concept/enterprise-ai-agent.md)
 - [Agent 安全架构](../concept/agent-security-architecture.md)
+
+---
+
+## 原始资料
+
+- [讯飞转写_2026年03月25日_直播笔记：企业级小龙虾养成指南.txt](../../raw/会议记录/讯飞转写_2026年03月25日_直播笔记：企业级小龙虾养成指南.txt)

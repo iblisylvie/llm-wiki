@@ -1,0 +1,29 @@
+---
+title: 天数智芯
+type: entity
+date: 2026-04-14
+sources:
+  - competitor-chip-analysis-2026.md
+related:
+  - concept/ai-chip-landscape
+---
+
+# 天数智芯（Iluvatar CoreX）
+
+## 概述
+
+天数智芯是国内较早推出通用 GPU 产品的企业之一，主打训推一体加速卡。
+
+## 代表产品
+
+- **智铠 50**：训推一体加速卡，INT8 256 TOPS / FP16 64 TFLOPS / FP32 16 TFLOPS，16GB HBM2E，PCIe 4.0 ×16，功耗 75W，半高半长单槽位设计。
+- **智铠 100**：升级版本，INT8 384 TOPS / FP16 96 TFLOPS / FP32 24 TFLOPS，32GB HBM2E，PCIe 4.0 ×16，功耗 150W，全高全长单槽位。
+
+## 市场表现
+
+- 2024 年 IDC 出货量约 3.8 万张。
+
+## 特点
+
+- 产品形态紧凑（单槽位），适合对空间要求较高的服务器部署。
+- 功耗控制较好（75W-150W）。

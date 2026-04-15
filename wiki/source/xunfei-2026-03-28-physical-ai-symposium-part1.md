@@ -72,3 +72,9 @@ related:
 - [穹彻智能](../entity/qionge-intelligence.md)
 - [智元机器人](../entity/zhiyuan-robotics.md)
 - [傅利叶智能](../entity/fourier-intelligence.md)
+
+---
+
+## 原始资料
+
+- [讯飞转写_2026年03月28日_直播笔记_浦江智涌_AI无界_Physical_AI_前沿探索与产业创新研讨会暨第二十八届系友论坛顺利举办_Part1.txt](../../raw/会议记录/讯飞转写_2026年03月28日_直播笔记_浦江智涌_AI无界_Physical_AI_前沿探索与产业创新研讨会暨第二十八届系友论坛顺利举办_Part1.txt)

@@ -69,3 +69,9 @@ related:
 - [推理优化](../concept/inference-optimization.md)
 - [东方算力](../entity/oriental-computing.md)
 - [合见工软](../entity/united-innovation.md)
+
+---
+
+## 原始资料
+
+- [讯飞转写_2026年03月28日_直播笔记_浦江智涌_AI无界_Physical_AI_前沿探索与产业创新研讨会暨第二十八届系友论坛顺利举办_Part2.txt](../../raw/会议记录/讯飞转写_2026年03月28日_直播笔记_浦江智涌_AI无界_Physical_AI_前沿探索与产业创新研讨会暨第二十八届系友论坛顺利举办_Part2.txt)

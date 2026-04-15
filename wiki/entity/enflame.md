@@ -1,0 +1,29 @@
+---
+title: 燧原科技
+type: entity
+date: 2026-04-14
+sources:
+  - competitor-chip-analysis-2026.md
+related:
+  - concept/ai-chip-landscape
+---
+
+# 燧原科技（Enflame）
+
+## 概述
+
+燧原科技是一家专注于 AI 加速芯片的国内企业，产品以云端推理和智算中心为主。
+
+## 代表产品
+
+- **云燧 i20**：基于云燧 2.5 芯片的推理加速卡，INT8 256 TOPS / FP16 128 TFLOPS，16GB HBM2E（819GB/s），PCIe 全高 3/4 长，被动散热，最大功耗 150W。
+- **S60**：智算中心推理卡，INT8 262 TOPS / FP32 128 TFLOPS，48GB HBM2E（672GB/s），PCIe 5.0 ×16，功耗 300W。
+
+## 市场表现
+
+- 2024 年 IDC 出货量约 1.3 万张。
+
+## 特点
+
+- 产品定位明确，聚焦推理场景。
+- 采用 HBM2E 显存，带宽表现较好。

@@ -1,0 +1,25 @@
+---
+title: 海光信息
+type: entity
+date: 2026-04-14
+sources:
+  - competitor-chip-analysis-2026.md
+related:
+  - concept/ai-chip-landscape
+---
+
+# 海光信息（Hygon）
+
+## 概述
+
+海光信息是国内 x86 CPU 和 DCU（Deep Computing Unit）的主要供应商之一，其 DCU 产品主打 CUDA 兼容性，生态迁移成本相对较低。
+
+## 代表产品
+
+- **DCU K100**：云推理芯片，INT8 200 TOPS / FP16 100 TFLOPS / FP32 24.5 TFLOPS / FP64 24.5 TFLOPS，64GB 显存，PCIe Gen4 ×16，功耗 300W。
+- **DCU K100 AI**：增强版，INT8 400 TOPS / FP16 200 TFLOPS，FP32 支持 Tensor 加速至 98 TFLOPS，PCIe 5.0 ×16，功耗 350-400W，64GB 显存。
+
+## 优势
+
+- **CUDA 兼容**：国产芯片中少有的强调 CUDA 生态兼容性的方案，降低了从 NVIDIA 平台迁移的难度。
+- **双精度算力突出**：FP64 算力与 FP32 持平，适合科学计算和 HPC 场景。

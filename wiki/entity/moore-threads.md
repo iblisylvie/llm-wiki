@@ -1,0 +1,25 @@
+---
+title: 摩尔线程
+type: entity
+date: 2026-04-14
+sources:
+  - competitor-chip-analysis-2026.md
+related:
+  - concept/ai-chip-landscape
+---
+
+# 摩尔线程（Moore Threads）
+
+## 概述
+
+摩尔线程是国内专注于全功能 GPU 的初创公司，产品覆盖图形渲染、AI 推理和大语言模型加速。
+
+## 代表产品
+
+- **MTT S4000**：大语言模型加速卡，INT8 200 TOPS / FP16/BF16 100 TFLOPS / TF32 50 TFLOPS / FP32 25 TFLOPS，48GB 显存（768GB/s），PCIe 5.0 ×16。
+- **MTT S5000**：下一代产品，支持 FP8 数据类型。
+
+## 特点
+
+- 强调全功能 GPU 路线，兼顾图形和计算。
+- 面向大语言模型场景进行优化。

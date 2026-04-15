@@ -1,0 +1,30 @@
+---
+title: 昆仑芯
+type: entity
+date: 2026-04-14
+sources:
+  - competitor-chip-analysis-2026.md
+related:
+  - concept/ai-chip-landscape
+---
+
+# 昆仑芯（Kunlun）
+
+## 概述
+
+昆仑芯是百度旗下的 AI 芯片公司，产品基于自研 XPU 架构，覆盖云端推理和训推一体场景。
+
+## 代表产品
+
+- **昆仑芯 R200**：云端推理卡，INT8 256 TOPS / FP16 128 TFLOPS / FP32 32 TFLOPS，GDDR6 16GB/32GB（512GB/s），PCIe 4.0 ×16，功耗 150W/160W，参考价约 2.5 万元。
+- **K200**：基于 XPU-K 架构的推理训练一体加速卡，INT8 256 TOPS / FP16 64 TFLOPS，16GB GDDR6（512GB/s），PCIe 4.0 ×8，功耗 150W，14nm 工艺。
+- **P800**：训推一体加速卡，INT8 750 TOPS / FP16 375 TFLOPS，96GB HBM（2.76TB/s），互联带宽 320GB/s，功耗 >450W，八卡整机约 150 万元。
+
+## 市场表现
+
+- 2024 年 IDC 出货量约 6.9 万张。
+
+## 特点
+
+- 背靠百度，有较强的大模型应用场景牵引能力。
+- 年底计划推出第三代产品，目标切入训练市场，但目前看更适合推理场景。

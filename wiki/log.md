@@ -20,3 +20,18 @@
 - 更新索引：wiki/index.md
 - 更新概览：wiki/overview.md
 - 状态：第一批资料摄入完成，wiki 进入可用状态
+
+## [2026-04-14] ingest | 摄入 AI 芯片竞品分析资料
+
+- 来源文件：
+  - `raw/竞品资料/NVIDIA/GPU关键指标汇总：算力、显存、通信.docx`
+  - `raw/竞品资料/竞品分析--重点竞争对手.xlsx`
+  - `raw/竞品资料/NVIDIA/`（图片、PDF）
+  - `raw/竞品资料/华为/`（图片）
+  - `raw/竞品资料/AI 10TOPS以上推理算力芯片Spec汇总（持续更新中）.xlsx`（文件损坏，暂无法读取）
+- 新建 source 页面：1 个（AI 芯片竞品分析资料汇总）
+- 新建 entity 页面：12 个（英伟达、华为/昇腾、寒武纪、燧原科技、天数智芯、昆仑芯、海光信息、登临科技、摩尔线程、算能、沐曦、AMD）
+- 新建 concept 页面：5 个（NVLink / NVSwitch、Tensor Core、HBM、FP8、AI 芯片竞争格局）
+- 更新索引：wiki/index.md
+- 更新概览：wiki/overview.md
+- 状态：第二批资料摄入完成，wiki 页面数扩展至 38 页
