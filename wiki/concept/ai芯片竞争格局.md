@@ -3,11 +3,11 @@ title: AI 芯片竞争格局
 type: concept
 date: 2026-04-14
 sources:
-  - competitor-chip-analysis-2026.md
+  - 竞品芯片分析-2026.md
 related:
   - entity/nvidia
-  - entity/huawei
-  - entity/cambricon
+  - entity/华为
+  - entity/寒武纪
   - entity/amd
   - concept/tensor-core
   - concept/hbm

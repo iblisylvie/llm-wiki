@@ -5,9 +5,9 @@ date: 2026-04-14
 sources:
   - 讯飞转写_2026年03月25日_直播笔记：企业级小龙虾养成指南.txt
 related:
-  - source/xunfei-2026-03-25-enterprise-lobster.md
-  - entity/tencent-cloud.md
-  - concept/agent-security-architecture.md
+  - source/讯飞-2026-03-25-企业级小龙虾养成指南.md
+  - entity/腾讯云.md
+  - concept/agent安全架构.md
 ---
 
 # 企业级 AI Agent
@@ -36,4 +36,4 @@ related:
 
 ## 来源
 
-- [企业级小龙虾养成指南直播笔记](../source/xunfei-2026-03-25-enterprise-lobster.md)
+- [企业级小龙虾养成指南直播笔记](../source/讯飞-2026-03-25-企业级小龙虾养成指南.md)

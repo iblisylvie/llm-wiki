@@ -6,10 +6,10 @@ sources:
   - 02-市场情报/行业动态/会议记录/讯飞转写_2026年03月28日_直播笔记_浦江智涌_AI无界_Physical_AI_前沿探索与产业创新研讨会暨第二十八届系友论坛顺利举办_Part2.txt
 related:
   - concept/physical-ai.md
-  - concept/advanced-packaging.md
-  - concept/inference-optimization.md
-  - entity/oriental-computing.md
-  - entity/united-innovation.md
+  - concept/先进封装.md
+  - concept/推理优化.md
+  - entity/东方算力.md
+  - entity/合见工软.md
 ---
 
 # 浦江智涌 AI无界 Physical AI 研讨会（下午场）
@@ -65,10 +65,10 @@ related:
 ## 相关页面
 
 - [Physical AI](../concept/physical-ai.md)
-- [先进封装](../concept/advanced-packaging.md)
-- [推理优化](../concept/inference-optimization.md)
-- [东方算力](../entity/oriental-computing.md)
-- [合见工软](../entity/united-innovation.md)
+- [先进封装](../concept/先进封装.md)
+- [推理优化](../concept/推理优化.md)
+- [东方算力](../entity/东方算力.md)
+- [合见工软](../entity/合见工软.md)
 
 ---
 

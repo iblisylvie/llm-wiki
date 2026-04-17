@@ -3,7 +3,7 @@ title: NVIDIA
 type: entity
 date: 2026-04-14
 sources:
-  - competitor-chip-analysis-2026.md
+  - 竞品芯片分析-2026.md
 related:
   - concept/tensor-core
   - concept/hbm

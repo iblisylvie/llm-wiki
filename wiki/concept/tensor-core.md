@@ -3,10 +3,10 @@ title: Tensor Core
 type: concept
 date: 2026-04-14
 sources:
-  - competitor-chip-analysis-2026.md
+  - 竞品芯片分析-2026.md
 related:
   - entity/nvidia
-  - concept/ai-chip-landscape
+  - concept/ai芯片竞争格局
 ---
 
 # Tensor Core

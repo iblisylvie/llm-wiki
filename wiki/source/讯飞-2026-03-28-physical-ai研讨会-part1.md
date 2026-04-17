@@ -6,12 +6,12 @@ sources:
   - 02-市场情报/行业动态/会议记录/讯飞转写_2026年03月28日_直播笔记_浦江智涌_AI无界_Physical_AI_前沿探索与产业创新研讨会暨第二十八届系友论坛顺利举办_Part1.txt
 related:
   - concept/physical-ai.md
-  - concept/world-model.md
-  - concept/embodied-intelligence.md
-  - entity/stepfun.md
-  - entity/qionge-intelligence.md
-  - entity/zhiyuan-robotics.md
-  - entity/fourier-intelligence.md
+  - concept/世界模型.md
+  - concept/具身智能.md
+  - entity/阶跃星辰.md
+  - entity/穹彻智能.md
+  - entity/智元机器人.md
+  - entity/傅利叶智能.md
 ---
 
 # 浦江智涌 AI无界 Physical AI 研讨会（上午场）
@@ -66,12 +66,12 @@ related:
 ## 相关页面
 
 - [Physical AI](../concept/physical-ai.md)
-- [世界模型](../concept/world-model.md)
-- [具身智能](../concept/embodied-intelligence.md)
-- [阶跃星辰](../entity/stepfun.md)
-- [穹彻智能](../entity/qionge-intelligence.md)
-- [智元机器人](../entity/zhiyuan-robotics.md)
-- [傅利叶智能](../entity/fourier-intelligence.md)
+- [世界模型](../concept/世界模型.md)
+- [具身智能](../concept/具身智能.md)
+- [阶跃星辰](../entity/阶跃星辰.md)
+- [穹彻智能](../entity/穹彻智能.md)
+- [智元机器人](../entity/智元机器人.md)
+- [傅利叶智能](../entity/傅利叶智能.md)
 
 ---
 

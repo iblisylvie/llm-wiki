@@ -6,10 +6,10 @@ sources:
   - 讯飞转写_2026年03月28日_直播笔记_浦江智涌_AI无界_Physical_AI_前沿探索与产业创新研讨会暨第二十八届系友论坛顺利举办_Part1.txt
   - 讯飞转写_2026年03月28日_直播笔记_浦江智涌_AI无界_Physical_AI_前沿探索与产业创新研讨会暨第二十八届系友论坛顺利举办_Part2.txt
 related:
-  - source/xunfei-2026-03-28-physical-ai-symposium-part1.md
-  - source/xunfei-2026-03-28-physical-ai-symposium-part2.md
-  - concept/embodied-intelligence.md
-  - concept/world-model.md
+  - source/讯飞-2026-03-28-physical-ai研讨会-part1.md
+  - source/讯飞-2026-03-28-physical-ai研讨会-part2.md
+  - concept/具身智能.md
+  - concept/世界模型.md
 ---
 
 # Physical AI
@@ -37,12 +37,12 @@ Physical AI（物理人工智能）是人工智能与物理世界深度融合的
 
 ## 相关概念
 
-- [具身智能](embodied-intelligence.md)
-- [世界模型](world-model.md)
-- [先进封装](advanced-packaging.md)
-- [推理优化](inference-optimization.md)
+- [具身智能](具身智能.md)
+- [世界模型](世界模型.md)
+- [先进封装](先进封装.md)
+- [推理优化](推理优化.md)
 
 ## 来源
 
-- [浦江智涌 AI无界 Physical AI 研讨会（上午场）](../source/xunfei-2026-03-28-physical-ai-symposium-part1.md)
-- [浦江智涌 AI无界 Physical AI 研讨会（下午场）](../source/xunfei-2026-03-28-physical-ai-symposium-part2.md)
+- [浦江智涌 AI无界 Physical AI 研讨会（上午场）](../source/讯飞-2026-03-28-physical-ai研讨会-part1.md)
+- [浦江智涌 AI无界 Physical AI 研讨会（下午场）](../source/讯飞-2026-03-28-physical-ai研讨会-part2.md)

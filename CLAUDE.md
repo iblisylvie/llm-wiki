@@ -27,8 +27,10 @@ llm_wiki/
 
 ## 文件命名约定
 
-- 使用小写英文，单词间用连字符 `-` 连接。
-- 例如：`entity/elon-musk.md`, `concept/rag-system.md`
+- **优先使用中文命名文件和目录**，保持语义直观、易于检索。
+- 对于**约定俗成的英文专有名词**（如 `NVIDIA`、`AMD`、`token`、`FP8`、`HBM`、`NVLink`、`Tensor Core`、`Physical AI` 等），可保留英文原名，无需强行翻译。
+- 文件名中避免无意义的英文缩写，必要时用连字符 `-` 分隔。
+- 例如：`entity/英伟达.md`, `concept/存算一体.md`, `source/讯飞-2026-03-28-physical-ai研讨会-part1.md`
 
 ## 原始目录结构约定
 
@@ -60,6 +62,7 @@ related: []        # 相关的 wiki 页面链接
 2. 在 `wiki/source/` 下创建对应的总结页，并在页面底部添加"原始资料"链接区块：
    - 使用相对路径 `../../raw/...` 链接回原始文件
    - 示例：`- [原始文件名.txt](../../raw/子目录/原始文件名.txt)`
+   - wiki 内部页面链接使用 `../entity/xxx.md` 或 `../concept/xxx.md` 格式
 3. 提取关键实体和概念，创建或更新 `wiki/entity/` 和 `wiki/concept/` 页面。
 4. 更新 `wiki/overview.md` 和 `wiki/index.md`。
 5. 在 `wiki/log.md` 中追加一条记录：`## [YYYY-MM-DD] ingest | 资料标题`
@@ -111,6 +114,14 @@ python scripts/migrate-raw.py "旧路径" "新路径"
 ## 设计参考
 
 - UI 设计统一参考 [`DESIGN.md`](DESIGN.md) 中的 Apple 风格设计系统。
+
+## 站点构建
+
+- 构建命令：`python scripts/build_site.py`（输出 `site/index.html`，单页应用）
+- 测试命令：`python -m pytest scripts/tests/ -v`
+- 本地预览：`python -m http.server 8800 --directory site/`
+- 构建产物：`site/index.html` 为单页应用，内含所有页面数据；`site/raw` 为符号链接，确保原始文件可下载
+- 样式与路由模板位于 `scripts/build_site/assets.py` 的 `SITE_TEMPLATE` 中
 
 ## 工具命令
 

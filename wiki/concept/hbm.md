@@ -3,11 +3,11 @@ title: HBM（高带宽内存）
 type: concept
 date: 2026-04-14
 sources:
-  - competitor-chip-analysis-2026.md
+  - 竞品芯片分析-2026.md
 related:
   - entity/nvidia
-  - concept/ai-chip-landscape
-  - concept/inference-optimization
+  - concept/ai芯片竞争格局
+  - concept/推理优化
 ---
 
 # HBM（High Bandwidth Memory，高带宽内存）
