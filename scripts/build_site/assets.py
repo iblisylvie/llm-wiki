@@ -66,6 +66,11 @@ SITE_TEMPLATE = """<!DOCTYPE html>
             grid-template-columns: 280px 1fr 260px;
             height: 100vh;
             padding-top: 48px;
+            transition: grid-template-columns 0.25s ease;
+        }
+
+        .layout.bot-open {
+            grid-template-columns: 280px 1fr 380px;
         }
 
         .sidebar-left {
@@ -430,6 +435,201 @@ SITE_TEMPLATE = """<!DOCTYPE html>
                 padding: 24px;
             }
         }
+
+        .chat-bot {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            z-index: 2000;
+            font-family: inherit;
+        }
+
+        .chat-bot-toggle {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            border: none;
+            background: #fff;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0;
+            transition: transform 0.2s;
+        }
+
+        .chat-bot-toggle:hover {
+            transform: scale(1.05);
+        }
+
+        .chat-bot-toggle img {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .chat-bot.open .chat-bot-toggle {
+            display: none;
+        }
+
+        .sidebar-bot {
+            position: fixed;
+            top: 48px;
+            right: 0;
+            width: 380px;
+            height: calc(100vh - 48px);
+            background: #fff;
+            border-left: 1px solid var(--border-light);
+            display: none;
+            flex-direction: column;
+            overflow: hidden;
+            z-index: 1999;
+        }
+
+        .layout.bot-open .sidebar-bot {
+            display: flex;
+        }
+
+        .layout.bot-open .sidebar-right {
+            display: none;
+        }
+
+        .chat-bot-header {
+            height: 52px;
+            padding: 0 16px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid var(--border-light);
+            flex-shrink: 0;
+        }
+
+        .chat-bot-title {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .chat-bot-close {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            border: none;
+            background: transparent;
+            color: var(--text-tertiary);
+            font-size: 20px;
+            line-height: 1;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .chat-bot-close:hover {
+            background: rgba(0, 0, 0, 0.05);
+            color: var(--text-primary);
+        }
+
+        .chat-bot-messages {
+            flex: 1;
+            overflow-y: auto;
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .chat-bot-message {
+            display: flex;
+        }
+
+        .chat-bot-message.bot {
+            justify-content: flex-start;
+        }
+
+        .chat-bot-message.user {
+            justify-content: flex-end;
+        }
+
+        .chat-bot-bubble {
+            max-width: 80%;
+            padding: 10px 14px;
+            border-radius: 14px;
+            font-size: 14px;
+            line-height: 1.45;
+            word-break: break-word;
+        }
+
+        .chat-bot-message.bot .chat-bot-bubble {
+            background: #f2f2f7;
+            color: var(--text-primary);
+            border-bottom-left-radius: 4px;
+        }
+
+        .chat-bot-message.user .chat-bot-bubble {
+            background: var(--apple-blue);
+            color: #fff;
+            border-bottom-right-radius: 4px;
+        }
+
+        .chat-bot-footer {
+            padding: 12px 16px;
+            border-top: 1px solid var(--border-light);
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            flex-shrink: 0;
+        }
+
+        .chat-bot-input {
+            flex: 1;
+            height: 36px;
+            padding: 0 12px;
+            border: 1px solid var(--border-light);
+            border-radius: 980px;
+            font-size: 14px;
+            outline: none;
+        }
+
+        .chat-bot-input:focus {
+            border-color: var(--apple-blue);
+        }
+
+        .chat-bot-send {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            border: none;
+            background: var(--apple-blue);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+
+        .chat-bot-send:hover {
+            opacity: 0.9;
+        }
+
+        @media (max-width: 900px) {
+            .layout.bot-open {
+                grid-template-columns: 280px 1fr 0px;
+            }
+            .sidebar-bot {
+                width: 100%;
+                border-left: none;
+            }
+        }
+
+        @media (max-width: 420px) {
+            .chat-bot {
+                right: 16px;
+                bottom: 16px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -451,6 +651,24 @@ SITE_TEMPLATE = """<!DOCTYPE html>
                 </div>
             </div>
         </main>
+
+        <aside class="sidebar-bot">
+            <div class="chat-bot-header">
+                <span class="chat-bot-title">AI 助手</span>
+                <button class="chat-bot-close" aria-label="关闭">×</button>
+            </div>
+            <div class="chat-bot-messages">
+                <div class="chat-bot-message bot">
+                    <div class="chat-bot-bubble">你好！我是 Wiki 助手，有什么可以帮你的吗？</div>
+                </div>
+            </div>
+            <div class="chat-bot-footer">
+                <input type="text" class="chat-bot-input" placeholder="输入消息…">
+                <button class="chat-bot-send" aria-label="发送">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                </button>
+            </div>
+        </aside>
 
         <aside class="sidebar-right">
             <div class="toc-title">本页目录</div>
@@ -649,6 +867,55 @@ SITE_TEMPLATE = """<!DOCTYPE html>
                 if (active) active.classList.add('active');
             }
         }, { passive: true });
+    </script>
+
+    <div class="chat-bot">
+        <button class="chat-bot-toggle" aria-label="打开对话">
+            <img src="assets/chat-bot-v1-80.apng" alt="Bot" width="56" height="56">
+        </button>
+    </div>
+
+    <script>
+        (function() {
+            const layout = document.querySelector('.layout');
+            const bot = document.querySelector('.chat-bot');
+            const toggle = document.querySelector('.chat-bot-toggle');
+            const closeBtn = document.querySelector('.chat-bot-close');
+            const input = document.querySelector('.chat-bot-input');
+            const send = document.querySelector('.chat-bot-send');
+            const messages = document.querySelector('.chat-bot-messages');
+
+            function toggleDialog() {
+                bot.classList.toggle('open');
+                layout.classList.toggle('bot-open');
+            }
+            toggle.addEventListener('click', toggleDialog);
+            closeBtn.addEventListener('click', toggleDialog);
+
+            function appendMessage(text, fromUser) {
+                const row = document.createElement('div');
+                row.className = 'chat-bot-message ' + (fromUser ? 'user' : 'bot');
+                const bubble = document.createElement('div');
+                bubble.className = 'chat-bot-bubble';
+                bubble.textContent = text;
+                row.appendChild(bubble);
+                messages.appendChild(row);
+                messages.scrollTop = messages.scrollHeight;
+            }
+
+            function handleSend() {
+                const text = input.value.trim();
+                if (!text) return;
+                appendMessage(text, true);
+                input.value = '';
+                setTimeout(() => appendMessage('收到：' + text, false), 500);
+            }
+
+            send.addEventListener('click', handleSend);
+            input.addEventListener('keydown', e => {
+                if (e.key === 'Enter') handleSend();
+            });
+        })();
     </script>
 </body>
 </html>

@@ -119,9 +119,10 @@ python scripts/migrate-raw.py "旧路径" "新路径"
 
 - 构建命令：`python scripts/build_site.py`（输出 `site/index.html`，单页应用）
 - 测试命令：`python -m pytest scripts/tests/ -v`
-- 本地预览：`python -m http.server 8800 --directory site/`
+- 本地预览：`python -m http.server 8800 --directory site/`（修改模板后需重建并重启服务才能生效）
 - 构建产物：`site/index.html` 为单页应用，内含所有页面数据；`site/raw` 为符号链接，确保原始文件可下载
-- 样式与路由模板位于 `scripts/build_site/assets.py` 的 `SITE_TEMPLATE` 中
+- 样式与路由模板位于 `scripts/build_site/assets.py` 的 `SITE_TEMPLATE` 中；`renderer.py` 会在构建时将项目根目录 `assets/` 复制到 `site/assets/`
+- 页面布局网格为 `280px 1fr 260px`（左导航 / 内容区 / 右目录），修改整体宽度或新增侧边面板时需同步更新 `.layout` 的 `grid-template-columns`
 
 ## 工具命令
 

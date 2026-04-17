@@ -2,6 +2,7 @@
 
 import datetime
 import json
+import shutil
 from pathlib import Path
 
 from build_site.assets import SITE_TEMPLATE
@@ -26,3 +27,11 @@ def render_site_html(nav_html: str, pages: dict, output_path: str) -> None:
     raw_source = (site_dir.parent / "raw").resolve()
     if not raw_symlink.exists() and raw_source.exists():
         raw_symlink.symlink_to(raw_source, target_is_directory=True)
+
+    # Copy assets directory so icons/images are available
+    assets_src = site_dir.parent / "assets"
+    assets_dst = site_dir / "assets"
+    if assets_src.exists():
+        if assets_dst.exists():
+            shutil.rmtree(assets_dst)
+        shutil.copytree(assets_src, assets_dst)
