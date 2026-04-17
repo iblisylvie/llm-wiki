@@ -107,3 +107,11 @@ python scripts/migrate-raw.py "旧路径" "新路径"
 - 第二批资料已摄入（AI 芯片竞品分析资料：NVIDIA/华为/寒武纪/燧原等）。
 - 第三批资料已摄入（亿铸科技中移动展会 Q&A）。
 - Wiki 页面数：40（5 source + 20 entity + 13 concept + index + log + overview）。
+
+## 设计参考
+
+- UI 设计统一参考 [`DESIGN.md`](DESIGN.md) 中的 Apple 风格设计系统。
+
+## 工具命令
+
+- `/plugin`: 用于调用插件扩展功能。

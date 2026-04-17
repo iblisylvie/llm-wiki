@@ -1,1 +1,11 @@
 pythonenv/
+__pycache__/
+*.py[cod]
+site/
+debug/
+*.PNG
+*.png
+*.jpg
+*.jpeg
+*.gif
+
