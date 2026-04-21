@@ -103,6 +103,15 @@ python scripts/migrate-raw.py "旧路径" "新路径"
 ## 开发环境
 
 - Python 虚拟环境位于 `pythonenv/bin/activate`，处理 Excel/docx 等资料时可先激活该环境。
+- **运行 `bot/` 代码前必须激活虚拟环境**：`source /root/llm-wiki/pythonenv/bin/activate`，否则 `google-adk` 等依赖会报 `ModuleNotFoundError`。
+- **Bot 本地启动**（在 `bot/` 目录下）：`python main.py`（默认 `127.0.0.1:8080`）；自定义端口/地址用 `PORT=8804 ADK_API_HOST=0.0.0.0 python main.py`。
+- **Bot Docker 启动**：镜像构建后，将宿主机的 `wiki/` 和 `site/` 挂载到容器根目录的 `/wiki` 和 `/site`（`wiki_tools.py` 会优先查找这两个绝对路径），无需额外环境变量。
+
+### Bot 服务架构
+
+- `rag-skill` 采用**工具驱动检索**：`search_wiki` 找文件 → `read_wiki_page` 读内容，不依赖静态 `<files>` 引用（wiki+site 总量超 1MB，无法放入上下文）。
+- `SKILL.md` 的 `external_references` 字段由 `skill_loader.py` **自定义加载**，非 ADK 原生功能；外部目录的文本文件会被读取为 Skill 的 references。
+- `site/` 下的 `index.html` 是聚合页，搜索排序时** wiki 文件优先级高于 site**，避免聚合页抢占相关结果。
 
 ## 当前状态
 

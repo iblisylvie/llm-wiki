@@ -8,6 +8,7 @@
 
 ## 资料总结 (source/)
 
+- [source/斯坦福-人工智能指数报告-2026](source/斯坦福-人工智能指数报告-2026.md) — 斯坦福大学 HAI 第九版 AI Index 年度报告（423 页，全球 AI 趋势全景）
 - [source/讯飞-2026-03-25-企业级小龙虾养成指南](source/讯飞-2026-03-25-企业级小龙虾养成指南.md) — 企业级小龙虾养成指南直播笔记
 - [source/讯飞-2026-03-28-physical-ai研讨会-part1](source/讯飞-2026-03-28-physical-ai研讨会-part1.md) — 浦江智涌 AI无界 Physical AI 研讨会（上午场）
 - [source/讯飞-2026-03-28-physical-ai研讨会-part2](source/讯飞-2026-03-28-physical-ai研讨会-part2.md) — 浦江智涌 AI无界 Physical AI 研讨会（下午场）
@@ -36,6 +37,9 @@
 - [entity/沐曦](entity/沐曦.md) — 沐曦
 - [entity/amd](entity/amd.md) — AMD
 - [entity/亿铸科技](entity/亿铸科技.md) — 亿铸科技
+- [entity/斯坦福大学HAI](entity/斯坦福大学HAI.md) — 斯坦福大学 HAI（AI Index 报告发布机构）
+- [entity/OpenAI](entity/OpenAI.md) — OpenAI（GPT/ChatGPT/o1 系列）
+- [entity/DeepSeek](entity/DeepSeek.md) — DeepSeek（深度求索，R1 推理模型）
 
 ## 概念页面 (concept/)
 
@@ -52,6 +56,7 @@
 - [concept/fp8](concept/fp8.md) — FP8
 - [concept/ai芯片竞争格局](concept/ai芯片竞争格局.md) — AI 芯片竞争格局
 - [concept/存算一体](concept/存算一体.md) — 存算一体（PIM）
+- [concept/前沿模型](concept/前沿模型.md) — 前沿模型（Frontier Models）
 
 ## 综合分析 (synthesis/)
 
@@ -59,8 +64,8 @@
 
 ## 元数据
 
-- 总页面数：40（含 index, log, overview）
-- 最后更新：2026-04-15
+- 总页面数：45（含 index, log, overview）
+- 最后更新：2026-04-20
 
 - [entity/腾讯云](entity/腾讯云.md) — 腾讯云
 - [entity/阶跃星辰](entity/阶跃星辰.md) — 阶跃星辰
@@ -103,5 +108,5 @@
 
 ## 元数据
 
-- 总页面数：38（含 index, log, overview）
-- 最后更新：2026-04-14
+- 总页面数：45（含 index, log, overview）
+- 最后更新：2026-04-20

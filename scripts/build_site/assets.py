@@ -6,6 +6,7 @@ SITE_TEMPLATE = """<!DOCTYPE html>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LLM Wiki</title>
+    <script src="https://cdn.jsdelivr.net/npm/marked@12.0.0/marked.min.js"></script>
     <style>
         :root {
             --bg-light: #f5f5f7;
@@ -614,6 +615,178 @@ SITE_TEMPLATE = """<!DOCTYPE html>
             opacity: 0.9;
         }
 
+        .chat-bot-send:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .chat-event {
+            display: flex;
+            gap: 10px;
+            align-items: flex-start;
+        }
+
+        .chat-event-meta {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+            flex-shrink: 0;
+            width: 36px;
+        }
+
+        .chat-event-num {
+            font-size: 11px;
+            color: var(--text-tertiary);
+            font-weight: 600;
+            font-family: -apple-system, monospace;
+        }
+
+        .chat-event-avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            background: #34c759;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 15px;
+            flex-shrink: 0;
+        }
+
+        .chat-event-avatar.user {
+            background: #0071e3;
+        }
+
+        .chat-event-body {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .chat-event-bubble {
+            background: #f2f2f7;
+            border-radius: 12px;
+            padding: 10px 14px;
+            font-size: 14px;
+            line-height: 1.55;
+            word-break: break-word;
+            color: var(--text-primary);
+        }
+
+        .chat-event-bubble.markdown p {
+            margin: 0 0 8px;
+        }
+
+        .chat-event-bubble.markdown p:last-child {
+            margin-bottom: 0;
+        }
+
+        .chat-event-bubble.markdown h1,
+        .chat-event-bubble.markdown h2,
+        .chat-event-bubble.markdown h3,
+        .chat-event-bubble.markdown h4 {
+            margin: 12px 0 6px;
+            font-size: 15px;
+            font-weight: 600;
+        }
+
+        .chat-event-bubble.markdown ul,
+        .chat-event-bubble.markdown ol {
+            margin: 0 0 8px 18px;
+            padding: 0;
+        }
+
+        .chat-event-bubble.markdown li {
+            margin-bottom: 2px;
+        }
+
+        .chat-event-bubble.markdown code {
+            background: var(--code-bg);
+            padding: 1px 4px;
+            border-radius: 4px;
+            font-size: 13px;
+            font-family: ui-monospace, SFMono-Regular, monospace;
+        }
+
+        .chat-event-bubble.markdown pre {
+            background: var(--code-bg);
+            padding: 10px 12px;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 8px 0;
+        }
+
+        .chat-event-bubble.markdown pre code {
+            background: none;
+            padding: 0;
+            font-size: 12px;
+        }
+
+        .chat-event-bubble.markdown blockquote {
+            border-left: 3px solid var(--border-light);
+            margin: 8px 0;
+            padding-left: 10px;
+            color: var(--text-secondary);
+        }
+
+        .chat-event-bubble.markdown strong {
+            font-weight: 600;
+        }
+
+        .chat-event-bubble.markdown a {
+            color: var(--apple-blue);
+            text-decoration: none;
+        }
+
+        .chat-event-bubble.markdown a:hover {
+            text-decoration: underline;
+        }
+
+        .chat-tool-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .chat-tool-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 4px 10px;
+            border-radius: 6px;
+            background: #fff;
+            border: 1px solid var(--border-light);
+            font-size: 13px;
+            color: var(--text-primary);
+            box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+        }
+
+        .chat-tool-tag .tool-icon {
+            font-size: 12px;
+        }
+
+        .chat-event-state {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 4px 10px;
+            border-radius: 6px;
+            background: #fff;
+            border: 1px solid var(--border-light);
+            font-size: 13px;
+            color: var(--text-primary);
+            box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+        }
+
+        .chat-event-state .state-icon {
+            font-size: 12px;
+        }
+
+        .chat-event-row + .chat-event-row {
+            margin-top: 12px;
+        }
+
         @media (max-width: 900px) {
             .layout.bot-open {
                 grid-template-columns: 280px 1fr 0px;
@@ -885,6 +1058,15 @@ SITE_TEMPLATE = """<!DOCTYPE html>
             const send = document.querySelector('.chat-bot-send');
             const messages = document.querySelector('.chat-bot-messages');
 
+            const API_BASE = 'http://js3.blockelite.cn:20286';
+            const APP_NAME = 'rag_agent';
+            const USER_ID = 'wiki-visitor-' + Math.random().toString(36).slice(2, 8);
+
+            let sessionId = null;
+            let isLoading = false;
+            let eventCounter = 0;
+            let uiEntries = [];
+
             function toggleDialog() {
                 bot.classList.toggle('open');
                 layout.classList.toggle('bot-open');
@@ -892,27 +1074,284 @@ SITE_TEMPLATE = """<!DOCTYPE html>
             toggle.addEventListener('click', toggleDialog);
             closeBtn.addEventListener('click', toggleDialog);
 
-            function appendMessage(text, fromUser) {
-                const row = document.createElement('div');
-                row.className = 'chat-bot-message ' + (fromUser ? 'user' : 'bot');
-                const bubble = document.createElement('div');
-                bubble.className = 'chat-bot-bubble';
-                bubble.textContent = text;
-                row.appendChild(bubble);
-                messages.appendChild(row);
-                messages.scrollTop = messages.scrollHeight;
+            function md(text) {
+                if (!text) return '';
+                return marked.parse(text, { breaks: true, gfm: true });
             }
 
-            function handleSend() {
+            function getAvatar(role) {
+                if (role === 'user') return '👤';
+                return '🤖';
+            }
+
+            function escapeHtml(text) {
+                const div = document.createElement('div');
+                div.textContent = text;
+                return div.innerHTML;
+            }
+
+            function createEventRow(role, innerHtml) {
+                eventCounter++;
+                const row = document.createElement('div');
+                row.className = 'chat-event chat-event-row';
+                const avatarCls = role === 'user' ? 'chat-event-avatar user' : 'chat-event-avatar';
+                row.innerHTML =
+                    '<div class="chat-event-meta">' +
+                        '<span class="chat-event-num">#' + eventCounter + '</span>' +
+                        '<span class="' + avatarCls + '">' + getAvatar(role) + '</span>' +
+                    '</div>' +
+                    '<div class="chat-event-body">' + innerHtml + '</div>';
+                messages.appendChild(row);
+                messages.scrollTop = messages.scrollHeight;
+                return row;
+            }
+
+            function createTextBubble(role, html) {
+                return createEventRow(role,
+                    '<div class="chat-event-bubble markdown">' + html + '</div>');
+            }
+
+            function buildEntryFromEvent(event) {
+                const role = event.author === 'user' ? 'user' : 'bot';
+                let text = '';
+                let functionCalls = [];
+                let functionResponses = [];
+                let stateDelta = null;
+                let artifactDelta = null;
+                let error = null;
+
+                if (event.content && event.content.parts) {
+                    for (const p of event.content.parts) {
+                        if (p.text != null && p.text !== '') text += p.text;
+                        if (p.functionCall) functionCalls.push(p.functionCall);
+                        if (p.functionResponse) functionResponses.push(p.functionResponse);
+                    }
+                }
+
+                if (event.actions) {
+                    if (event.actions.stateDelta && Object.keys(event.actions.stateDelta).length) {
+                        stateDelta = event.actions.stateDelta;
+                    }
+                    if (event.actions.artifactDelta && Object.keys(event.actions.artifactDelta).length) {
+                        artifactDelta = event.actions.artifactDelta;
+                    }
+                }
+
+                if (event.errorMessage || event.errorCode) {
+                    error = { code: event.errorCode, message: event.errorMessage };
+                }
+
+                return {
+                    role, text, functionCalls, functionResponses,
+                    stateDelta, artifactDelta, error,
+                    eventId: event.id,
+                    partial: !!event.partial,
+                    event: event,
+                    el: null,
+                    eventCounter: 0
+                };
+            }
+
+            function renderEntryHtml(entry) {
+                let html = '';
+
+                if (entry.functionCalls && entry.functionCalls.length) {
+                    const tags = entry.functionCalls.map(function(fc) {
+                        const name = fc.name || 'tool';
+                        return '<span class="chat-tool-tag"><span class="tool-icon">⚡</span>' + name + '</span>';
+                    }).join('');
+                    html += '<div class="chat-tool-tags">' + tags + '</div>';
+                }
+
+                if (entry.functionResponses && entry.functionResponses.length) {
+                    const tags = entry.functionResponses.map(function(fr) {
+                        const name = fr.name || 'result';
+                        return '<span class="chat-tool-tag"><span class="tool-icon">📤</span>' + name + '</span>';
+                    }).join('');
+                    html += '<div class="chat-tool-tags">' + tags + '</div>';
+                }
+
+                if (entry.stateDelta) {
+                    html += '<div class="chat-tool-tags"><span class="chat-event-state"><span class="state-icon">🔧</span>State</span></div>';
+                }
+
+                if (entry.artifactDelta) {
+                    html += '<div class="chat-tool-tags"><span class="chat-event-state"><span class="state-icon">📎</span>Artifact</span></div>';
+                }
+
+                if (entry.error) {
+                    html += '<div class="chat-event-bubble error"><p>⚠️ ' + escapeHtml(entry.error.message || 'Unknown error') + '</p></div>';
+                }
+
+                if (entry.text) {
+                    html += '<div class="chat-event-bubble markdown">' + md(entry.text) + '</div>';
+                }
+
+                return html;
+            }
+
+            function updateEntryDom(entry) {
+                if (!entry.el) return;
+                const body = entry.el.querySelector('.chat-event-body');
+                if (body) {
+                    body.innerHTML = renderEntryHtml(entry);
+                    messages.scrollTop = messages.scrollHeight;
+                }
+            }
+
+            function createEntryDom(entry) {
+                eventCounter++;
+                const row = document.createElement('div');
+                row.className = 'chat-event chat-event-row';
+                const avatarCls = entry.role === 'user' ? 'chat-event-avatar user' : 'chat-event-avatar';
+                row.innerHTML =
+                    '<div class="chat-event-meta">' +
+                        '<span class="chat-event-num">#' + eventCounter + '</span>' +
+                        '<span class="' + avatarCls + '">' + getAvatar(entry.role) + '</span>' +
+                    '</div>' +
+                    '<div class="chat-event-body">' + renderEntryHtml(entry) + '</div>';
+                messages.appendChild(row);
+                messages.scrollTop = messages.scrollHeight;
+                entry.el = row;
+                entry.eventCounter = eventCounter;
+            }
+
+            function mergeEntry(target, source) {
+                target.text += source.text;
+                if (source.functionCalls.length) {
+                    target.functionCalls = target.functionCalls.concat(source.functionCalls);
+                }
+                if (source.functionResponses.length) {
+                    target.functionResponses = target.functionResponses.concat(source.functionResponses);
+                }
+                if (source.stateDelta) target.stateDelta = source.stateDelta;
+                if (source.artifactDelta) target.artifactDelta = source.artifactDelta;
+                if (source.error) target.error = source.error;
+                target.eventId = source.eventId;
+                target.event = source.event;
+            }
+
+            function appendEvent(event) {
+                const newEntry = buildEntryFromEvent(event);
+
+                if (event.partial) {
+                    if (uiEntries.length > 0) {
+                        const last = uiEntries[uiEntries.length - 1];
+                        if (last.partial && last.role === newEntry.role) {
+                            mergeEntry(last, newEntry);
+                            updateEntryDom(last);
+                            return;
+                        }
+                    }
+                    uiEntries.push(newEntry);
+                    createEntryDom(newEntry);
+                } else {
+                    let idx = -1;
+                    if (event.id) {
+                        idx = uiEntries.findIndex(function(e) { return e.eventId === event.id; });
+                    }
+                    if (idx < 0 && uiEntries.length > 0) {
+                        const last = uiEntries[uiEntries.length - 1];
+                        if (last.partial && last.role === newEntry.role) {
+                            idx = uiEntries.length - 1;
+                        }
+                    }
+
+                    if (idx >= 0) {
+                        const oldEntry = uiEntries[idx];
+                        if (newEntry.text || newEntry.functionCalls.length || newEntry.functionResponses.length) {
+                            newEntry.el = oldEntry.el;
+                            newEntry.eventCounter = oldEntry.eventCounter;
+                            uiEntries[idx] = newEntry;
+                            updateEntryDom(newEntry);
+                        } else {
+                            oldEntry.partial = false;
+                            oldEntry.eventId = newEntry.eventId;
+                            if (newEntry.stateDelta) oldEntry.stateDelta = newEntry.stateDelta;
+                            if (newEntry.artifactDelta) oldEntry.artifactDelta = newEntry.artifactDelta;
+                            if (newEntry.error) oldEntry.error = newEntry.error;
+                            updateEntryDom(oldEntry);
+                        }
+                    } else {
+                        uiEntries.push(newEntry);
+                        createEntryDom(newEntry);
+                    }
+                }
+            }
+
+            async function ensureSession() {
+                if (sessionId) return sessionId;
+                const res = await fetch(`${API_BASE}/apps/${APP_NAME}/users/${USER_ID}/sessions`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: '{}'
+                });
+                if (!res.ok) throw new Error('创建会话失败：' + res.status);
+                const session = await res.json();
+                sessionId = session.id;
+                return sessionId;
+            }
+
+            async function handleSend() {
                 const text = input.value.trim();
-                if (!text) return;
-                appendMessage(text, true);
+                if (!text || isLoading) return;
+                createTextBubble('user', md(text));
                 input.value = '';
-                setTimeout(() => appendMessage('收到：' + text, false), 500);
+
+                isLoading = true;
+                send.disabled = true;
+                input.disabled = true;
+
+                try {
+                    const sid = await ensureSession();
+                    const res = await fetch(`${API_BASE}/run_sse`, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            app_name: APP_NAME,
+                            user_id: USER_ID,
+                            session_id: sid,
+                            new_message: { role: 'user', parts: [{ text: text }] },
+                            streaming: true
+                        })
+                    });
+                    if (!res.ok) {
+                        const errText = await res.text();
+                        throw new Error('请求失败：' + errText);
+                    }
+
+                    const reader = res.body.getReader();
+                    const dec = new TextDecoder();
+                    let buf = '';
+                    for (;;) {
+                        const { value, done } = await reader.read();
+                        if (done) break;
+                        buf += dec.decode(value, { stream: true });
+                        let idx;
+                        while ((idx = buf.indexOf('\\n\\n')) >= 0) {
+                            const block = buf.slice(0, idx);
+                            buf = buf.slice(idx + 2);
+                            const line = block.split('\\n').find(function(l) { return l.startsWith('data:'); });
+                            if (!line) continue;
+                            const json = line.slice(5).trim();
+                            if (!json) continue;
+                            const ev = JSON.parse(json);
+                            if (ev.error) throw new Error(ev.error);
+                            appendEvent(ev);
+                        }
+                    }
+                } catch (err) {
+                    createTextBubble('model', '<p>抱歉，服务暂时不可用：' + err.message + '</p>');
+                } finally {
+                    isLoading = false;
+                    send.disabled = false;
+                    input.disabled = false;
+                    input.focus();
+                }
             }
 
             send.addEventListener('click', handleSend);
-            input.addEventListener('keydown', e => {
+            input.addEventListener('keydown', function(e) {
                 if (e.key === 'Enter') handleSend();
             });
         })();
