@@ -1,0 +1,9 @@
+.env
+.env.*
+!.env.example
+.adk/
+data/
+__pycache__/
+*.py[cod]
+.venv/
+venv/

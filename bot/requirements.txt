@@ -1,0 +1,8 @@
+# 项目「直接」依赖。请勿用整环境 `pip freeze` 覆盖本文件，否则会混入 Jupyter/torch/CUDA 等与仓库无关的包。
+# 其余（litellm、fastapi、uvicorn 等）由 pip 根据 google-adk 自动解析安装。
+
+google-adk==1.30.0
+python-dotenv>=1.2.2,<2
+requests>=2.33.1,<3
+PyYAML>=6.0,<7
+litellm==1.82.6

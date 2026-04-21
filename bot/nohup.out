@@ -1,0 +1,26 @@
+/root/llm-wiki/pythonenv/lib/python3.12/site-packages/google/adk/features/_feature_decorator.py:72: UserWarning: [EXPERIMENTAL] feature FeatureName.PLUGGABLE_AUTH is enabled.
+  check_feature_enabled()
+Traceback (most recent call last):
+  File "/root/llm-wiki/bot/main.py", line 10, in <module>
+    from google.adk.cli.fast_api import get_fast_api_app
+  File "/root/llm-wiki/pythonenv/lib/python3.12/site-packages/google/adk/cli/__init__.py", line 15, in <module>
+    from .cli_tools_click import main
+  File "/root/llm-wiki/pythonenv/lib/python3.12/site-packages/google/adk/cli/cli_tools_click.py", line 35, in <module>
+    from . import cli_create
+  File "/root/llm-wiki/pythonenv/lib/python3.12/site-packages/google/adk/cli/cli_create.py", line 25, in <module>
+    from .utils import gcp_utils
+  File "/root/llm-wiki/pythonenv/lib/python3.12/site-packages/google/adk/cli/utils/gcp_utils.py", line 30, in <module>
+    from google.cloud import resourcemanager_v3
+  File "/root/llm-wiki/pythonenv/lib/python3.12/site-packages/google/cloud/resourcemanager_v3/__init__.py", line 34, in <module>
+    from .services.projects import ProjectsAsyncClient, ProjectsClient
+  File "/root/llm-wiki/pythonenv/lib/python3.12/site-packages/google/cloud/resourcemanager_v3/services/projects/__init__.py", line 16, in <module>
+    from .async_client import ProjectsAsyncClient
+  File "/root/llm-wiki/pythonenv/lib/python3.12/site-packages/google/cloud/resourcemanager_v3/services/projects/async_client.py", line 58, in <module>
+    from .client import ProjectsClient
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 991, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 1087, in get_code
+  File "<frozen importlib._bootstrap_external>", line 1187, in get_data
+KeyboardInterrupt
