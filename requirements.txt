@@ -1,0 +1,8 @@
+# 项目级依赖（覆盖 bot + scripts）
+-r bot/requirements.txt
+
+# 站点构建
+Markdown>=3.10,<4
+
+# 测试
+pytest>=9.0,<10
