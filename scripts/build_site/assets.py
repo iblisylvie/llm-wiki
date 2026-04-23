@@ -1058,7 +1058,7 @@ SITE_TEMPLATE = """<!DOCTYPE html>
             const send = document.querySelector('.chat-bot-send');
             const messages = document.querySelector('.chat-bot-messages');
 
-            const API_BASE = 'http://js3.blockelite.cn:20286';
+            const API_BASE = window.BOT_API_BASE || 'http://js3.blockelite.cn:20286';
             const APP_NAME = 'rag_agent';
             const USER_ID = 'wiki-visitor-' + Math.random().toString(36).slice(2, 8);
 
