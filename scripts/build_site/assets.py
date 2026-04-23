@@ -536,10 +536,9 @@ SITE_TEMPLATE = """<!DOCTYPE html>
         .chat-bot-messages {
             flex: 1;
             overflow-y: auto;
-            padding: 16px;
+            padding: 0;
             display: flex;
             flex-direction: column;
-            gap: 12px;
         }
 
         .chat-bot-message {
@@ -618,6 +617,106 @@ SITE_TEMPLATE = """<!DOCTYPE html>
         .chat-bot-send:disabled {
             opacity: 0.5;
             cursor: not-allowed;
+        }
+
+        .chat-user-query {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            background: #f5f5f7;
+            padding: 16px 20px;
+            font-size: 15px;
+            line-height: 1.5;
+            color: var(--text-primary);
+            word-break: break-word;
+            border-bottom: 1px solid rgba(0,0,0,0.06);
+            box-shadow: 0 1px 4px rgba(0,0,0,0.03);
+        }
+
+        .chat-agent-response {
+            padding: 12px 20px 28px;
+            font-size: 14px;
+            line-height: 1.65;
+            color: var(--text-primary);
+            word-break: break-word;
+        }
+
+        .chat-agent-response.markdown > *:first-child {
+            margin-top: 0;
+        }
+
+        .chat-agent-response.markdown p {
+            margin: 0 0 10px;
+        }
+
+        .chat-agent-response.markdown p:last-child {
+            margin-bottom: 0;
+        }
+
+        .chat-agent-response.markdown ul,
+        .chat-agent-response.markdown ol {
+            margin: 0 0 10px 20px;
+            padding: 0;
+        }
+
+        .chat-agent-response.markdown li {
+            margin-bottom: 4px;
+        }
+
+        .chat-agent-response.markdown code {
+            background: var(--code-bg);
+            padding: 2px 5px;
+            border-radius: 4px;
+            font-size: 13px;
+            font-family: ui-monospace, SFMono-Regular, monospace;
+        }
+
+        .chat-agent-response.markdown pre {
+            background: var(--code-bg);
+            padding: 12px 14px;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 10px 0;
+        }
+
+        .chat-agent-response.markdown pre code {
+            background: none;
+            padding: 0;
+            font-size: 12px;
+        }
+
+        .chat-agent-response.markdown blockquote {
+            border-left: 3px solid var(--border-light);
+            margin: 10px 0;
+            padding-left: 12px;
+            color: var(--text-secondary);
+        }
+
+        .chat-agent-response.markdown strong {
+            font-weight: 600;
+        }
+
+        .chat-agent-response.markdown a {
+            color: var(--apple-blue);
+            text-decoration: none;
+        }
+
+        .chat-agent-response.markdown a:hover {
+            text-decoration: underline;
+        }
+
+        .chat-agent-response .chat-tool-tags {
+            margin-bottom: 10px;
+        }
+
+        .chat-event-bubble.error {
+            background: #fff0f0;
+            border: 1px solid #ffcdd2;
+            color: #c62828;
+            border-radius: 10px;
+            padding: 10px 14px;
+            font-size: 14px;
+            margin: 8px 0;
         }
 
         .chat-event {
@@ -831,9 +930,7 @@ SITE_TEMPLATE = """<!DOCTYPE html>
                 <button class="chat-bot-close" aria-label="关闭">×</button>
             </div>
             <div class="chat-bot-messages">
-                <div class="chat-bot-message bot">
-                    <div class="chat-bot-bubble">你好！我是 Wiki 助手，有什么可以帮你的吗？</div>
-                </div>
+                <div class="chat-agent-response markdown">你好！我是 Wiki 助手，有什么可以帮你的吗？</div>
             </div>
             <div class="chat-bot-footer">
                 <input type="text" class="chat-bot-input" placeholder="输入消息…">
@@ -1107,8 +1204,16 @@ SITE_TEMPLATE = """<!DOCTYPE html>
             }
 
             function createTextBubble(role, html) {
-                return createEventRow(role,
-                    '<div class="chat-event-bubble markdown">' + html + '</div>');
+                const div = document.createElement('div');
+                if (role === 'user') {
+                    div.className = 'chat-user-query markdown';
+                } else {
+                    div.className = 'chat-agent-response markdown';
+                }
+                div.innerHTML = html;
+                messages.appendChild(div);
+                messages.scrollTop = messages.scrollHeight;
+                return div;
             }
 
             function buildEntryFromEvent(event) {
@@ -1184,7 +1289,7 @@ SITE_TEMPLATE = """<!DOCTYPE html>
                 }
 
                 if (entry.text) {
-                    html += '<div class="chat-event-bubble markdown">' + md(entry.text) + '</div>';
+                    html += md(entry.text);
                 }
 
                 return html;
@@ -1192,28 +1297,26 @@ SITE_TEMPLATE = """<!DOCTYPE html>
 
             function updateEntryDom(entry) {
                 if (!entry.el) return;
-                const body = entry.el.querySelector('.chat-event-body');
-                if (body) {
-                    body.innerHTML = renderEntryHtml(entry);
-                    messages.scrollTop = messages.scrollHeight;
+                if (entry.role === 'user') {
+                    entry.el.innerHTML = md(entry.text || '');
+                } else {
+                    entry.el.innerHTML = renderEntryHtml(entry);
                 }
+                messages.scrollTop = messages.scrollHeight;
             }
 
             function createEntryDom(entry) {
-                eventCounter++;
-                const row = document.createElement('div');
-                row.className = 'chat-event chat-event-row';
-                const avatarCls = entry.role === 'user' ? 'chat-event-avatar user' : 'chat-event-avatar';
-                row.innerHTML =
-                    '<div class="chat-event-meta">' +
-                        '<span class="chat-event-num">#' + eventCounter + '</span>' +
-                        '<span class="' + avatarCls + '">' + getAvatar(entry.role) + '</span>' +
-                    '</div>' +
-                    '<div class="chat-event-body">' + renderEntryHtml(entry) + '</div>';
-                messages.appendChild(row);
+                const div = document.createElement('div');
+                if (entry.role === 'user') {
+                    div.className = 'chat-user-query markdown';
+                    div.innerHTML = md(entry.text || '');
+                } else {
+                    div.className = 'chat-agent-response markdown';
+                    div.innerHTML = renderEntryHtml(entry);
+                }
+                messages.appendChild(div);
                 messages.scrollTop = messages.scrollHeight;
-                entry.el = row;
-                entry.eventCounter = eventCounter;
+                entry.el = div;
             }
 
             function mergeEntry(target, source) {
