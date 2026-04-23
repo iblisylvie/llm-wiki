@@ -624,13 +624,14 @@ SITE_TEMPLATE = """<!DOCTYPE html>
             top: 0;
             z-index: 10;
             background: #f5f5f7;
-            padding: 16px 20px;
+            padding: 14px 18px;
+            margin: 0 12px;
+            border-radius: 16px;
             font-size: 15px;
             line-height: 1.5;
             color: var(--text-primary);
             word-break: break-word;
-            border-bottom: 1px solid rgba(0,0,0,0.06);
-            box-shadow: 0 1px 4px rgba(0,0,0,0.03);
+            box-shadow: 0 1px 4px rgba(0,0,0,0.04);
         }
 
         .chat-agent-response {
