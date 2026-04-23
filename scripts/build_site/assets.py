@@ -1149,7 +1149,7 @@ SITE_TEMPLATE = """<!DOCTYPE html>
 
     <div class="chat-bot">
         <button class="chat-bot-toggle" aria-label="打开对话">
-            <img src="assets/chat-bot-v1-80.apng" alt="Bot" width="56" height="56">
+            <img src="assets/llm-wiki-bot-icon-v2.png" alt="Bot" width="56" height="56">
         </button>
     </div>
 

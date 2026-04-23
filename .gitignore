@@ -1,7 +1,9 @@
+raw/
+wiki/
 pythonenv/
 __pycache__/
+__enqueued__/
 *.py[cod]
-site/
 debug/
 *.PNG
 *.png
