@@ -608,6 +608,13 @@ SITE_TEMPLATE = """<!DOCTYPE html>
             align-items: center;
             justify-content: center;
             cursor: pointer;
+            flex-shrink: 0;
+            padding: 0;
+        }
+
+        .chat-bot-send svg {
+            flex-shrink: 0;
+            display: block;
         }
 
         .chat-bot-send:hover {
