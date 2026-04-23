@@ -45,7 +45,7 @@ def _dashscope_api_key() -> str:
 
 
 _agent_kw: dict = {
-    "name": "能源小助手",
+    "name": "Wiki 助手",
     "model": LiteLlm(
         model="openai/qwen-plus",
         api_base="https://dashscope.aliyuncs.com/compatible-mode/v1",

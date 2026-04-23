@@ -458,10 +458,24 @@ SITE_TEMPLATE = """<!DOCTYPE html>
             justify-content: center;
             padding: 0;
             transition: transform 0.2s;
+            animation: bot-pulse 2.5s ease-in-out infinite;
+        }
+
+        @keyframes bot-pulse {
+            0%, 100% {
+                transform: scale(1);
+                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+            }
+            50% {
+                transform: scale(1.08);
+                box-shadow: 0 6px 28px rgba(0, 113, 227, 0.35);
+            }
         }
 
         .chat-bot-toggle:hover {
-            transform: scale(1.05);
+            animation: none;
+            transform: scale(1.1);
+            box-shadow: 0 6px 24px rgba(0, 113, 227, 0.4);
         }
 
         .chat-bot-toggle img {
@@ -1149,7 +1163,7 @@ SITE_TEMPLATE = """<!DOCTYPE html>
 
     <div class="chat-bot">
         <button class="chat-bot-toggle" aria-label="打开对话">
-            <img src="assets/llm-wiki-bot-icon-v2.png" alt="Bot" width="56" height="56">
+            <img src="assets/llm-wiki-bot-icon-v4.png" alt="Bot" width="56" height="56">
         </button>
     </div>
 
