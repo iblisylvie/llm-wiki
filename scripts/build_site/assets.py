@@ -1,11 +1,15 @@
 """HTML/CSS/JS templates for the generated site."""
 
+import os
+
+SITE_TITLE = os.environ.get("LLM_WIKI_SITE_TITLE", "LLM Wiki")
+
 SITE_TEMPLATE = """<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LLM Wiki</title>
+    <title>{{site_title}}</title>
     <script src="https://cdn.jsdelivr.net/npm/marked@12.0.0/marked.min.js"></script>
     <style>
         :root {
@@ -928,7 +932,7 @@ SITE_TEMPLATE = """<!DOCTYPE html>
 </head>
 <body>
     <nav class="top-nav">
-        <a class="logo" href="#/">LLM Wiki</a>
+        <a class="logo" href="#/">{{site_title}}</a>
         <div class="search"></div>
     </nav>
 
@@ -1028,7 +1032,7 @@ SITE_TEMPLATE = """<!DOCTYPE html>
             if (!page) return;
             currentPageKey = key;
 
-            document.title = page.title + ' | LLM Wiki';
+            document.title = page.title + ' | {{site_title}}';
             const contentEl = document.getElementById('content');
             contentEl.innerHTML = addHeadingIds(page.html);
 
@@ -1126,7 +1130,7 @@ SITE_TEMPLATE = """<!DOCTYPE html>
                 </div>
             `;
             document.getElementById('toc').innerHTML = '';
-            document.title = 'LLM Wiki';
+            document.title = '{{site_title}}';
             document.querySelectorAll('.nav-link').forEach(a => a.classList.remove('active'));
         }
 

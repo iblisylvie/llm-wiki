@@ -6,7 +6,6 @@ __enqueued__/
 *.py[cod]
 debug/
 *.PNG
-*.png
 *.jpg
 *.jpeg
 *.gif

@@ -3,15 +3,16 @@
 Build a static knowledge base site with three-column layout.
 """
 
+import os
 from pathlib import Path
 
 from build_site.tree import build_wiki_tree, build_raw_trees, flatten_tree, build_nav_html
 from build_site.renderer import render_site_html
 
 ROOT = Path(__file__).resolve().parent.parent
-WIKI_DIR = ROOT / "wiki"
-RAW_DIR = ROOT / "raw"
-SITE_DIR = ROOT / "site"
+WIKI_DIR = Path(os.environ.get("LLM_WIKI_WIKI_DIR", str(ROOT / "wiki")))
+RAW_DIR = Path(os.environ.get("LLM_WIKI_RAW_DIR", str(ROOT / "raw")))
+SITE_DIR = Path(os.environ.get("LLM_WIKI_SITE_DIR", str(ROOT / "site")))
 
 
 def main():

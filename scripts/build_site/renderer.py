@@ -5,7 +5,7 @@ import json
 import shutil
 from pathlib import Path
 
-from build_site.assets import SITE_TEMPLATE
+from build_site.assets import SITE_TEMPLATE, SITE_TITLE
 
 
 class _DateEncoder(json.JSONEncoder):
@@ -18,7 +18,11 @@ class _DateEncoder(json.JSONEncoder):
 def render_site_html(nav_html: str, pages: dict, output_path: str) -> None:
     output = Path(output_path)
     pages_json = json.dumps(pages, ensure_ascii=False, cls=_DateEncoder)
-    html = SITE_TEMPLATE.replace("{{nav_html}}", nav_html).replace("{{pages_json}}", pages_json)
+    html = (
+        SITE_TEMPLATE.replace("{{nav_html}}", nav_html)
+        .replace("{{pages_json}}", pages_json)
+        .replace("{{site_title}}", SITE_TITLE)
+    )
     output.write_text(html, encoding="utf-8")
 
     # Ensure site/raw symlink exists so raw file downloads work

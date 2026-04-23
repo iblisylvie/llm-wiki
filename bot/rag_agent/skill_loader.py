@@ -4,6 +4,7 @@
 当前环境若未导出该函数，则用本模块实现（行为与官方加载 SKILL/references/scripts 一致）。"""
 from __future__ import annotations
 
+import os
 import pathlib
 from typing import Any
 
@@ -36,7 +37,7 @@ def load_skill_from_dir(skill_dir: pathlib.Path, base_dir: pathlib.Path | None =
     if not skill_md.is_file():
         raise FileNotFoundError(f"缺少 SKILL.md: {skill_md}")
 
-    text = skill_md.read_text(encoding="utf-8")
+    text = os.path.expandvars(skill_md.read_text(encoding="utf-8"))
     if not text.lstrip().startswith("---"):
         raise ValueError(f"SKILL.md 必须以 YAML frontmatter 开头: {skill_md}")
 

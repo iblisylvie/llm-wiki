@@ -29,7 +29,10 @@ USER appuser
 
 # 默认与下方 CMD 一致；启动容器可用 -e 覆盖 host/port
 ENV ADK_API_HOST=0.0.0.0 \
-    PORT=8080
+    PORT=8080 \
+    LLM_WIKI_AGENT_NAME="Wiki助手" \
+    LLM_WIKI_MODEL="openai/qwen-plus" \
+    LLM_WIKI_API_BASE="https://dashscope.aliyuncs.com/compatible-mode/v1"
 
 EXPOSE 8080
 
