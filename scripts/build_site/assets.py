@@ -71,7 +71,7 @@ SITE_TEMPLATE = """<!DOCTYPE html>
         }
 
         .layout.bot-open {
-            grid-template-columns: 280px 1fr 380px;
+            grid-template-columns: 280px 1fr 260px;
         }
 
         .sidebar-left {
@@ -479,7 +479,7 @@ SITE_TEMPLATE = """<!DOCTYPE html>
             position: fixed;
             top: 48px;
             right: 0;
-            width: 380px;
+            width: 260px;
             height: calc(100vh - 48px);
             background: #fff;
             border-left: 1px solid var(--border-light);
